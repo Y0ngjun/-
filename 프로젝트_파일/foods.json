@@ -85,37 +85,37 @@
   },
   {
     "name": "닭볶음탕",
-    "ingredients": ["김치", "닭"],
+    "ingredients": ["김치", "닭고기"],
     "image": "",
     "video": ""
   },
   {
     "name": "삼계탕",
-    "ingredients": ["닭"],
+    "ingredients": ["닭고기"],
     "image": "",
     "video": ""
   },
   {
     "name": "닭갈비",
-    "ingredients": ["닭"],
+    "ingredients": ["닭고기"],
     "image": "",
     "video": ""
   },
   {
     "name": "닭곰탕",
-    "ingredients": ["닭"],
+    "ingredients": ["닭고기"],
     "image": "",
     "video": ""
   },
   {
     "name": "찜닭",
-    "ingredients": ["감자", "닭"],
+    "ingredients": ["감자", "닭고기"],
     "image": "",
     "video": ""
   },
   {
     "name": "닭강정",
-    "ingredients": ["닭"],
+    "ingredients": ["닭고기"],
     "image": "",
     "video": ""
   },
@@ -212,12 +212,6 @@
   {
     "name": "마파두부",
     "ingredients": ["돼지고기", "두부"],
-    "image": "",
-    "video": ""
-  },
-  {
-    "name": "찌개류",
-    "ingredients": ["두부"],
     "image": "",
     "video": ""
   },
