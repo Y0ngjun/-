@@ -77,22 +77,46 @@ footer {
     margin-top: 20px;
 }
 
-.ingredient {
-    text-align: center;
-    margin: 10px;
-    width: 100px;
+.ingredient-btn {
+    display: flex;
+    flex-direction: column; /* 이미지와 텍스트 세로 배치 */
+    justify-content: center; /* 세로로 중앙 정렬 */
+    align-items: center; /* 가로로 중앙 정렬 */
+    padding: 12px; /* 버튼 내부 여백 추가 */
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    border-radius: 4px; /* 버튼 둥근 모서리 */
+    margin: 5px;
+    width: 120px; /* 버튼 너비 설정 */
+    height: 120px; /* 버튼 높이를 너비와 동일하게 설정하여 정사각형으로 만듦 */
+    box-sizing: border-box; /* 패딩이 버튼의 크기에 포함되도록 설정 */
+    gap: 10px; /* 이미지와 텍스트 사이에 여백 추가 */
 }
 
-.ingredient-img {
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
-    border-radius: 8px;
+.ingredient-btn img {
+    width: 72px; /* 이미지 크기 80%로 설정 */
+    height: 72px; /* 이미지 크기 80%로 설정 */
+    object-fit: contain; /* 비율 유지 */
 }
 
-.ingredient p {
-    font-size: 14px;
-    margin-top: 8px;
+.ingredient-btn span {
+    font-size: 14px; /* 텍스트 크기 */
+}
+
+
+
+
+
+.ingredient-btn:hover {
+    transform: scale(1.1); /* 호버 시 버튼 크기 증가 */
+    background-color: #ffebcc; /* 호버 시 배경색 변화 */
+}
+
+.ingredient-btn.selected {
+    background-color: #ff751a;  /* 선택된 식재료 버튼 색 */
+    color: white;
 }
 
 /* 메뉴 목록 (그리드 레이아웃으로 변경) */
@@ -123,4 +147,28 @@ footer {
     font-size: 18px;
     color: #333;
     margin: 0;
+}
+
+#food-search {
+    padding: 12px;
+    font-size: 16px;
+    width: 300px; /* 검색창 길이 */
+    max-width: 80%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+#search-btn {
+    padding: 12px 20px;
+    font-size: 16px;
+    background-color: #ff8c1a; /* 짙은 주황색 */
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#search-btn:hover {
+    background-color: #ff751a; /* hover 효과 */
 }
