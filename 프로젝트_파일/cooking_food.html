@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Page</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Noto Sans KR', sans-serif;
+            background: #eff7f9; 
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .container {
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .recipe-header {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .recipe-header h1 {
+            font-size: 2.5em;
+            margin: 0;
+            color: #333;
+        }
+        .recipe-image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 20px; 
+            color: #333;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .recipe-image {
+            width: 200px;
+            height: 200px;
+            background: #f0f0f0;
+            border-radius: 50%; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #333;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .content-section {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .ingredients-box, .video-box {
+            flex: 1;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 20px;
+            color: #333;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .ingredients-box h3, .video-box h3 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .ingredients-box table {
+            width: 100%;
+            color: #333;
+        }
+        .ingredients-box table td {
+            padding: 5px;
+        }
+        .instructions {
+            background: #ffffff;
+            border-radius: 20px; 
+            padding: 20px;
+            color: #333;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="recipe-header">
+        <h1>음식 이름</h1>
+    </div>
+
+    <div class="recipe-image-container">
+        <div class="recipe-image">
+            음식 사진
+        </div>
+    </div>
+
+    <div class="content-section">
+        <div class="ingredients-box">
+            <h3>음식 재료</h3>
+            <table>
+                <tr><td>재료 1</td><td>몇 그램</td></tr>
+                <tr><td>재료 2</td><td>몇 개</td></tr>
+                <tr><td>재료 3</td><td>몇 컵</td></tr>
+                <tr><td>재료 4</td><td>몇 개</td></tr>
+                <tr><td>재료 5</td><td>몇 스푼</td></tr>
+            </table>
+        </div>
+        <div class="video-box">
+            <h3>요리 영상</h3>
+            <img src="" alt="요리 영상" style="width: 100%; border-radius: 15px;">
+        </div>
+    </div>
+
+    <div class="instructions">
+        <h3>요리 설명</h3>
+        <p>~~~~~~~~~~~~~~~~~~~~~~~~~~</p>
+        <p>~~~~~~~~~~~~~~~~~~~~~~~~~~</p>
+        <p>~~~~~~~~~~~~~~~~~~~~~~~~~~</p>
+        
+    </div>
+</div>
+
+</body>
+</html>
