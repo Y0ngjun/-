@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recipe Layout</title>
+  <link rel="stylesheet" href="beta.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">IngredientMenu</div>
+      <ul class="nav-links">
+        <li><a href="#">Recipes</a></li>
+        <li><a href="#">메뉴1</a></li>
+        <li><a href="#">메뉴2</a></li>
+        <li><a href="#">메뉴3</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- 메뉴 검색창 섹션 -->
+    <section class="search">
+      <div class="search-container">
+        <h1>Take good care of the fridge.</h1>
+        <form>
+          <input
+            type="text"
+            placeholder="Search for recipes"
+            class="search-input"
+          />
+          <button type="submit" class="search-button">Search</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- 메인 재료 섹션 -->
+    <section class="ingredients">
+      <div class="ingredients-container">
+        <button data-ingredient="chicken">Chicken</button>
+        <button data-ingredient="garlic">Garlic</button>
+        <button data-ingredient="onion">Onion</button>
+        <button data-ingredient="tomato">Tomato</button>
+        <button data-ingredient="lettuce">Lettuce</button>
+        <button data-ingredient="cream">Cream</button>
+      </div>
+    </section>
+    
+    
+
+    <!-- 레시피 카드 섹션 -->
+    <section class="recipes">
+      <div class="recipe-card"></div>
+      <div class="recipe-card"></div>
+      <div class="recipe-card"></div>
+      <div class="recipe-card"></div>
+      <div class="recipe-card"></div>
+      <div class="recipe-card"></div>
+      <div class="recipe-card"></div>
+      <div class="recipe-card"></div>
+      <div class="recipe-card"></div>
+      <div class="recipe-card"></div>
+    </section>
+  </main>
+</body>
+</html>

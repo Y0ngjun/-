@@ -1,0 +1,161 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+  
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+/* Header Styling */
+header {
+  background-color: #fff;
+  padding: 10px 20px;
+  border-bottom: 1px solid #ddd;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #e74c3c;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links li {
+  display: inline;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+  font-size: 16px;
+}
+
+.nav-links a:hover {
+  color: #e74c3c;
+}
+
+/* Search Section */
+.search {
+  text-align: center;
+  background-color: #f8f8f8;
+  padding: 50px 20px;
+  border-bottom: 1px solid #ddd;
+}
+
+.search-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.search h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.search-input {
+  width: 70%;
+  padding: 10px 15px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 50px;
+}
+
+.search-button {
+  padding: 10px 20px;
+  margin-left: 10px;
+  font-size: 16px;
+  background-color: #e74c3c;
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.search-button:hover {
+  background-color: #c0392b;
+}
+
+/* Ingredients Section */
+.ingredients {
+  text-align: center;
+  padding: 10px 10px;
+  background-color: #f8f8f8;
+  border-bottom: 1px solid #ddd;
+}
+
+
+.ingredients-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.ingredients-container button {
+  padding: 10px 20px;
+  font-size: 13px;
+  color: #333; /* 글씨색: 검정 */
+  background-color: #ffffff; /* 기본 버튼 색상: 흰색 */
+  border: 1px solid #ccc; /* 테두리: 옅은 회색 */
+  border-radius: 50px; /* 모서리 둥글게 */
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.ingredients-container button:hover {
+  background-color: #f0f0f0; /* 호버 시 버튼 색상: 옅은 회색 */
+  transform: scale(1.1); /* 살짝 확대 */
+}
+
+.ingredients-container button:active {
+  transform: scale(1.05); /* 클릭 시 약간 축소 */
+  background-color: #e6e6e6; /* 클릭 시 버튼 색상: 더 어두운 회색 */
+}
+
+
+/* Recipes Section */
+.recipes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+  background-color: #fff;
+}
+
+.recipe-card {
+  width: 300px;
+  height: 200px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  color: #888;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.recipe-card:hover {
+  transform: scale(1.05); /* 카드 크기를 살짝 키움 */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* 그림자 추가 */
+  background-color: #ffffff; /* 배경색을 밝게 변경 */
+}
+  
