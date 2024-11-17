@@ -7,23 +7,63 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
 }
 
-.header {
+nav {
+    background-color: #fff;
+    padding: 15px 30px;
+    border-bottom: 1px solid #ddd;
     display: flex;
-    flex-direction: column; /* 제목과 검색창을 세로로 배치 */
-    align-items: center; /* 중앙 정렬 */
-    padding: 60px 20px; /* 배너 상하 길이 늘리기 */
-    background-color: #ffd699; /* 연한 주황색 */
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ff8c1a;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li {
+    display: inline;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+}
+
+.nav-links a:hover {
+    color: #ff8c1a;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    /* 제목과 검색창을 세로로 배치 */
+    align-items: center;
+    /* 중앙 정렬 */
+    padding: 60px 20px;
+    /* 배너 상하 길이 늘리기 */
+    background-color: #f8f8f8;
     color: #333;
     text-align: center;
+    border-bottom: 1px solid #ddd;
 }
 
-.header h1 {
-    font-size: 36px; /* 제목 크기 증가 */
+header h1 {
+    font-size: 36px;
+    /* 제목 크기 증가 */
     color: #333;
-    margin-bottom: 20px; /* 제목과 검색창 사이의 간격 */
+    margin-bottom: 20px;
+    /* 제목과 검색창 사이의 간격 */
 }
 
 .search-bar {
@@ -32,37 +72,32 @@ body {
     width: 100%;
 }
 
-.search-bar input {
-    padding: 12px;
+#food-search {
+    padding: 10px 15px;
     font-size: 16px;
-    width: 300px; /* 검색창 길이 증가 */
+    width: 500px;
+    /* 검색창 길이 */
     max-width: 80%;
+    background-color: #ffffff;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 30px;
     margin-right: 10px;
 }
 
-.search-bar button {
-    padding: 12px 20px;
+#search-btn {
+    padding: 10px 20px;
     font-size: 16px;
-    background-color: #ff8c1a; /* 짙은 주황색 */
+    background-color: #ff8c1a;
+    /* 짙은 주황색 */
     color: #fff;
     border: none;
-    border-radius: 4px;
+    border-radius: 30px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
 }
 
-.search-bar button:hover {
-    background-color: #ff751a; /* 조금 더 짙은 주황색 */
-}
-
-footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #333;
-    color: white;
-    font-size: 14px;
+#search-btn:hover {
+    background-color: #ff751a;
+    /* hover 효과 */
 }
 
 .center-text {
@@ -73,74 +108,89 @@ footer {
 #ingredients-list {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
-    margin-top: 20px;
+    justify-content: center;
+    column-gap: 30px;
+    padding: 20px;
+    background-color: #f8f8f8;
+    border-bottom: 1px solid #ddd;
 }
 
 .ingredient-btn {
     display: flex;
-    flex-direction: column; /* 이미지와 텍스트 세로 배치 */
-    justify-content: center; /* 세로로 중앙 정렬 */
-    align-items: center; /* 가로로 중앙 정렬 */
-    padding: 12px; /* 버튼 내부 여백 추가 */
+    flex-direction: column;
+    /* 이미지와 텍스트 세로 배치 */
+    justify-content: center;
+    /* 세로로 중앙 정렬 */
+    align-items: center;
+    /* 가로로 중앙 정렬 */
     border: 1px solid #ccc;
-    background-color: #f9f9f9;
+    background-color: #ffffff;
     cursor: pointer;
     transition: transform 0.3s ease, background-color 0.3s ease;
-    border-radius: 4px; /* 버튼 둥근 모서리 */
+    border-radius: 30px;
+    /* 버튼 둥근 모서리 */
     margin: 5px;
-    width: 120px; /* 버튼 너비 설정 */
-    height: 120px; /* 버튼 높이를 너비와 동일하게 설정하여 정사각형으로 만듦 */
-    box-sizing: border-box; /* 패딩이 버튼의 크기에 포함되도록 설정 */
-    gap: 10px; /* 이미지와 텍스트 사이에 여백 추가 */
+    width: 110px;
+    /* 버튼 너비 설정 */
+    height: 110px;
+    /* 버튼 높이를 너비와 동일하게 설정하여 정사각형으로 만듦 */
+    box-sizing: border-box;
+    /* 패딩이 버튼의 크기에 포함되도록 설정 */
+    gap: 10px;
+    /* 이미지와 텍스트 사이에 여백 추가 */
 }
 
 .ingredient-btn img {
-    width: 72px; /* 이미지 크기 80%로 설정 */
-    height: 72px; /* 이미지 크기 80%로 설정 */
-    object-fit: contain; /* 비율 유지 */
+    width: 50px;
+    object-fit: contain;
+    /* 비율 유지 */
 }
 
 .ingredient-btn span {
-    font-size: 14px; /* 텍스트 크기 */
+    font-size: 16px;
+    /* 텍스트 크기 */
 }
 
-
-
-
-
 .ingredient-btn:hover {
-    transform: scale(1.1); /* 호버 시 버튼 크기 증가 */
-    background-color: #ffebcc; /* 호버 시 배경색 변화 */
+    transform: scale(1.1);
+    /* 호버 시 버튼 크기 증가 */
+    background-color: #ffebcc;
+    /* 호버 시 배경색 변화 */
 }
 
 .ingredient-btn.selected {
-    background-color: #ff751a;  /* 선택된 식재료 버튼 색 */
+    background-color: #ff751a;
+    /* 선택된 식재료 버튼 색 */
     color: white;
 }
 
 /* 메뉴 목록 (그리드 레이아웃으로 변경) */
 #foods-list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* 최소 200px 크기의 칸이 자동으로 채워짐 */
-    gap: 20px;  /* 아이템들 사이의 간격 */
-    padding: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    /* 최소 200px 크기의 칸이 자동으로 채워짐 */
+    gap: 20px;
+    /* 아이템들 사이의 간격 */
+    padding: 20px 150px;
 }
 
 .food {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 200px;  /* 정사각형 형태로 만들기 위한 높이 설정 */
-    background-color: #f4f4f4;
+    height: 200px;
+    /* 정사각형 형태로 만들기 위한 높이 설정 */
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
     border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     text-align: center;
-    transition: transform 0.3s ease;  /* hover 효과를 위해 */
+    transition: transform 0.3s ease;
+    /* hover 효과를 위해 */
 }
 
 .food:hover {
-    transform: scale(1.05);  /* hover 시 크기가 살짝 커짐 */
+    transform: scale(1.05);
+    /* hover 시 크기가 살짝 커짐 */
 }
 
 .food p {
@@ -149,26 +199,10 @@ footer {
     margin: 0;
 }
 
-#food-search {
-    padding: 12px;
-    font-size: 16px;
-    width: 300px; /* 검색창 길이 */
-    max-width: 80%;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-right: 10px;
-}
-
-#search-btn {
-    padding: 12px 20px;
-    font-size: 16px;
-    background-color: #ff8c1a; /* 짙은 주황색 */
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-#search-btn:hover {
-    background-color: #ff751a; /* hover 효과 */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+    font-size: 14px;
 }
