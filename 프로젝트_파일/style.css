@@ -215,8 +215,8 @@ footer {
         "image ingredients ingredients"
         "instructions instructions video";
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 30px;
-    max-width: 80%;
+    gap: 25px;
+    max-width: 75%;
     margin: 0 auto;
     padding: 20px;
     margin-top: 40px;
@@ -229,18 +229,18 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%; /* 그리드 셀 너비에 맞춤 */
+    width: auto; /* 그리드 셀 너비에 맞춤 */
     height: auto; /* 자동 높이 */
 }
 
 /* 음식 사진 */
 .food-image img {
     width: 100%; /* 이미지가 셀 너비를 채우도록 설정 */
-    height: auto; /* 비율 유지 */
-    max-height: 300px; /* 최대 높이 제한 */
+    height: 320px; /* 비율 유지 */
+    max-height: 320px; /* 최대 높이 제한 */
     object-fit: cover; /* 비율 유지하며 셀 채우기 */
-    border-radius: 40%; /* 모서리를 둥글게 설정 */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* 그림자 효과 */
+    border-radius: 10px; /* 모서리를 둥글게 설정 */
+    border: 1px solid #ddd;
 }
 
 /* 음식 이름 */
@@ -252,9 +252,9 @@ footer {
     align-items: flex-start;
     padding: 20px;
     background-color: #f0f0f0;
+    border: 1px solid #ddd;
     border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    height: 10px; /* 기본 높이 */
+    height: 45px; /* 기본 높이 */
     width: 100%; /* 너비는 그리드 열에 맞춤 */
 }
 
@@ -267,8 +267,8 @@ footer {
     align-items: flex-start;
     padding: 20px;
     background-color: #f0f0f0;
+    border: 1px solid #ddd;
     border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     height: 250px; /* 기본 높이 */
     width: 100%; /* 너비는 그리드 열에 맞춤 */
 }
@@ -282,8 +282,8 @@ footer {
     align-items: flex-start;
     padding: 20px;
     background-color: #f0f0f0;
+    border: 1px solid #ddd;
     border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     height: 250px; /* 기본 높이 */
     width: 100%; /* 너비는 그리드 열에 맞춤 */
 }
@@ -292,16 +292,16 @@ footer {
 .food-video {
     grid-area: video; /* 그리드 위치 지정 */
     position: relative;
-    padding-bottom: 56.25%; /* 16:9 비율 */
-    height: 0; /* 높이는 패딩 비율에 의해 결정됨 */
+    padding-bottom: auto; /* 16:9 비율 */
+    height: auto; /* 높이는 패딩 비율에 의해 결정됨 */
+    max-height: 250px;
     overflow: hidden; /* 섹션 밖으로 나가는 부분 숨김 */
     background-color: #f0f0f0; /* 배경색 (선택 사항) */
+    border: 1px solid #ddd;
     border-radius: 10px; /* 모서리를 둥글게 설정 */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* 그림자 효과 */
 }
 
 .food-video iframe {
-    margin-top: 10px;
     position: absolute;
     top: 0;
     left: 0;
