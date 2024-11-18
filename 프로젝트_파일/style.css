@@ -206,3 +206,189 @@ footer {
     color: white;
     font-size: 14px;
 }
+
+/* 공통 초기화 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.5;
+}
+
+nav {
+    background-color: #fff;
+    padding: 15px 30px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ff8c1a;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li {
+    display: inline;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+}
+
+.main-content {
+    margin: 20px;
+    padding: 20px;
+    background-color: #f8f8f8;
+}
+
+/* 상세 페이지 레이아웃 */
+/* 공통 초기화 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.5;
+}
+
+nav {
+    background-color: #fff;
+    padding: 15px 30px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ff8c1a;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li {
+    display: inline;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+}
+
+.main-content {
+    margin: 20px;
+    padding: 20px;
+    background-color: #f8f8f8;
+}
+
+/* 상세 페이지 레이아웃 */
+.food-detail-layout {
+    display: grid;
+    grid-template-areas:
+        "image name name"
+        "image ingredients ingredients"
+        "instructions instructions video";
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 40px;
+    max-width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* 기본 크기 설정 */
+
+/* 음식 사진 */
+.food-image {
+    grid-area: image;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    height: 350px; /* 기본 높이 */
+    width: 100%; /* 너비는 그리드 열에 맞춤 */
+}
+
+/* 음식 이름 */
+.food-name {
+    grid-area: name;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    height: 150px; /* 기본 높이 */
+    width: 100%; /* 너비는 그리드 열에 맞춤 */
+}
+
+/* 음식 재료 */
+.food-ingredients {
+    grid-area: ingredients;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    height: 150px; /* 기본 높이 */
+    width: 100%; /* 너비는 그리드 열에 맞춤 */
+}
+
+/* 요리 방법 */
+.food-instructions {
+    grid-area: instructions;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    height: 250px; /* 기본 높이 */
+    width: 100%; /* 너비는 그리드 열에 맞춤 */
+}
+
+/* 요리 영상 */
+.food-video {
+    grid-area: video;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    height: 250px; /* 기본 높이 */
+    width: 100%; /* 너비는 그리드 열에 맞춤 */
+}
