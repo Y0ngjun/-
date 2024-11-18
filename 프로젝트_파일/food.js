@@ -67,7 +67,7 @@ function displayFoodDetails(food) {
     // 요리 방법
     const instructionsElement = document.querySelector('.food-instructions p');
     if (instructionsElement) {
-        instructionsElement.textContent =
+        instructionsElement.innerHTML =
             food.instructions || '요리 방법 정보가 없습니다.';
     }
 
