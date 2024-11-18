@@ -207,7 +207,7 @@ footer {
     font-size: 14px;
 }
 
-/* 공통 초기화 */
+/* 공통 초기화
 * {
     margin: 0;
     padding: 0;
@@ -254,11 +254,11 @@ nav {
     margin: 20px;
     padding: 20px;
     background-color: #f8f8f8;
-}
+} */
 
 /* 상세 페이지 레이아웃 */
 /* 공통 초기화 */
-* {
+/* * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -304,7 +304,7 @@ nav {
     margin: 20px;
     padding: 20px;
     background-color: #f8f8f8;
-}
+} */
 
 /* 상세 페이지 레이아웃 */
 .food-detail-layout {
@@ -323,7 +323,7 @@ nav {
 /* 기본 크기 설정 */
 
 /* 음식 사진 */
-.food-image {
+.food-image img {
     grid-area: image;
     display: flex;
     justify-content: center;

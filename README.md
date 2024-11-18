@@ -5,4 +5,4 @@
 [Go to the website](https://y0ngjun.github.io/Fridge_Please/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8_%ED%8C%8C%EC%9D%BC/index.html)
 
 ### 활용 기술
-html, css, javascript
+html, css, javascript, json
