@@ -1,302 +1,434 @@
 [
   {
     "name": "감자전",
-    "ingredients": ["감자"],
-    "image": "음식_이미지/감자전.jpg", 
-    "instructions": "1. 감자를 갈아서 체에 밭친다.<br>2. 기름을 두른 팬에 부친다.",
+    "ingredients": [
+      "감자"
+    ],
+    "recipeingredients": [
+      "감자 2-3개(400g)",
+      "꽃소금 약간",
+      "식용유 4큰술",
+      "물 2컵(360ml)",
+      "청양고추 적당량(고명용)",
+      "청양고추 1개(10g)",
+      "진간장 3큰술(30g)",
+      "식초 1큰술(8g)"
+    ],
+    "instructions": 
+    "<b>감자전</b><br>1. 감자는 껍질을 벗겨 적당한 크기로 자른다.<br>2. 믹서기에 자른 감자와 물을 넣고 곱게 간다.<br>3. 가는 체에 간 감자를 거른 후, 전분이 가라앉도록 약 10~15분 정도 둔다.<br>4. 물에서 분리된 전분이 가라앉으면 조심히 물을 따라내고 전분만 남긴다.<br>5. 전분만 남은 볼에 체에 걸러 둔 감자를 섞는다.<br>6. 반죽에 꽃소금을 넣어 골고루 섞는다.<br>7. 청양고추는 가늘게 송송 썬다.<br>8. 넓은 팬에 식용유를 넉넉히 두르고 중 불에서 팬을 달군 후 감자전 반죽을 한 국자씩 올린다.<br>9. 감자전 위에 송송 썬 청양고추를 올린다.<br>10. 감자전을 뒤집어 가며 노릇하게 부친다.<br>11. 잘 익힌 감자전을 양념장과 함께 낸다.<br><br><b>양념장</b><br>1. 청양고추는 두께 0.3cm 정도로 송송 썬다.<br>2. 그릇에 진간장, 청양고추, 식초를 섞어서 양념장을 만든다.",
+    "image": "음식_이미지/감자전.jpg",
     "video": "https://www.youtube.com/embed/N82hJpl5cMM?si=vb4UPNqEr7DBQX09"
-},
+  },
   {
-    "name": "베이컨감자채볶음",
-    "ingredients": ["감자", "햄"],
+    "name": "햄감자채볶음",
+    "ingredients": [
+      "감자",
+      "햄"
+    ],
     "image": "",
-    "video": ""
+    "video": "https://www.youtube.com/embed/7VNH9Fvvus0?si=XEIXoQOZrucWpeYl"
   },
   {
     "name": "감자조림",
-    "ingredients": ["감자"],
+    "ingredients": [
+      "감자"
+    ],
     "image": "",
-    "video": ""
+    "video": "https://www.youtube.com/embed/3gQwydGHIG8?si=RVYdbZE1jCoFWBfN"
   },
   {
     "name": "감자튀김",
-    "ingredients": ["감자"],
+    "ingredients": [
+      "감자"
+    ],
     "image": "",
-    "video": ""
+    "video": "https://www.youtube.com/embed/tPf-KfZ6W84?si=onmVtZ3x88DRU9n8"
   },
   {
     "name": "계란찜",
-    "ingredients": ["계란"],
+    "ingredients": [
+      "계란"
+    ],
     "image": "",
-    "video": ""
+    "video": "https://www.youtube.com/embed/_H64Kz7Mgz4?si=X1T7VZ-VZnHLA3Q6"
   },
   {
     "name": "계란말이",
-    "ingredients": ["계란"],
+    "ingredients": [
+      "계란"
+    ],
     "image": "",
-    "video": ""
+    "video": "https://www.youtube.com/embed/T7YJviWhquo?si=ME6tj-ifOAMpzhgr"
   },
   {
     "name": "오므라이스",
-    "ingredients": ["감자", "계란"],
+    "ingredients": [
+      "감자",
+      "계란"
+    ],
     "image": "",
     "video": ""
   },
   {
     "name": "계란국",
-    "ingredients": ["계란"],
+    "ingredients": [
+      "계란"
+    ],
     "image": "",
     "video": ""
   },
   {
     "name": "계란볶음밥",
-    "ingredients": ["감자", "계란", "햄"],
+    "ingredients": [
+      "감자",
+      "계란",
+      "햄"
+    ],
     "image": "",
     "video": ""
   },
   {
     "name": "스크램블에그",
-    "ingredients": ["계란"],
+    "ingredients": [
+      "계란"
+    ],
     "image": "",
     "video": ""
   },
   {
     "name": "김치찌개",
-    "ingredients": ["김치", "돼지고기", "두부"],
+    "ingredients": [
+      "김치",
+      "돼지고기",
+      "두부"
+    ],
     "image": "",
     "video": ""
   },
   {
     "name": "김치볶음밥",
-    "ingredients": ["김치", "햄"],
+    "ingredients": [
+      "김치",
+      "햄"
+    ],
     "image": "",
     "video": ""
   },
   {
     "name": "김치전",
-    "ingredients": ["김치"],
+    "ingredients": [
+      "김치"
+    ],
     "image": "",
     "video": ""
   },
   {
     "name": "김치찜",
-    "ingredients": ["김치", "돼지고기"],
+    "ingredients": [
+      "김치",
+      "돼지고기"
+    ],
     "image": "",
     "video": ""
   },
   {
     "name": "닭볶음탕",
-    "ingredients": ["김치", "닭고기"],
+    "ingredients": [
+      "김치",
+      "닭고기"
+    ],
     "image": "",
     "video": ""
   },
   {
     "name": "삼계탕",
-    "ingredients": ["닭고기"],
+    "ingredients": [
+      "닭고기"
+    ],
     "image": "",
     "video": ""
   },
   {
     "name": "닭갈비",
-    "ingredients": ["닭고기"],
+    "ingredients": [
+      "닭고기"
+    ],
     "image": "",
     "video": ""
   },
   {
     "name": "닭곰탕",
-    "ingredients": ["닭고기"],
+    "ingredients": [
+      "닭고기"
+    ],
     "image": "",
     "video": ""
   },
   {
     "name": "찜닭",
-    "ingredients": ["감자", "닭고기"],
+    "ingredients": [
+      "감자",
+      "닭고기"
+    ],
     "image": "",
     "video": ""
   },
   {
     "name": "닭강정",
-    "ingredients": ["닭고기"],
+    "ingredients": [
+      "닭고기"
+    ],
     "image": "",
     "video": ""
   },
   {
     "name": "해물파전",
-    "ingredients": ["해산물"],
+    "ingredients": [
+      "해산물"
+    ],
     "image": "",
     "video": ""
   },
   {
     "name": "해물찜",
-    "ingredients": ["해산물"],
+    "ingredients": [
+      "해산물"
+    ],
     "image": "",
     "video": ""
   },
   {
     "name": "오징어볶음",
-    "ingredients": ["해산물"],
+    "ingredients": [
+      "해산물"
+    ],
     "image": "",
     "video": ""
   },
   {
     "name": "해산물파스타",
-    "ingredients": ["해산물"],
+    "ingredients": [
+      "해산물"
+    ],
     "image": "",
     "video": ""
   },
   {
     "name": "제육볶음",
-    "ingredients": ["돼지고기"],
+    "ingredients": [
+      "돼지고기"
+    ],
     "image": "",
     "video": ""
   },
   {
     "name": "수육",
-    "ingredients": ["돼지고기"],
+    "ingredients": [
+      "돼지고기"
+    ],
     "image": "",
     "video": ""
   },
   {
     "name": "돈가스",
-    "ingredients": ["돼지고기"],
+    "ingredients": [
+      "돼지고기"
+    ],
     "image": "",
     "video": ""
   },
   {
     "name": "돼지고기김치찌개",
-    "ingredients": ["김치", "돼지고기"],
+    "ingredients": [
+      "김치",
+      "돼지고기"
+    ],
     "image": "",
     "video": ""
   },
   {
     "name": "고추장찌개",
-    "ingredients": ["감자", "김치", "돼지고기"],
+    "ingredients": [
+      "감자",
+      "김치",
+      "돼지고기"
+    ],
     "image": "",
     "video": ""
   },
   {
     "name": "돼지불고기",
-    "ingredients": ["돼지고기"],
+    "ingredients": [
+      "돼지고기"
+    ],
     "image": "",
     "video": ""
   },
   {
     "name": "탕수육",
-    "ingredients": ["돼지고기"],
+    "ingredients": [
+      "돼지고기"
+    ],
     "image": "",
     "video": ""
   },
   {
     "name": "동그랑땡",
-    "ingredients": ["돼지고기"],
+    "ingredients": [
+      "돼지고기"
+    ],
     "image": "",
     "video": ""
   },
   {
     "name": "두부김치",
-    "ingredients": ["김치", "두부"],
+    "ingredients": [
+      "김치",
+      "두부"
+    ],
     "image": "",
     "video": ""
   },
   {
     "name": "순두부찌개",
-    "ingredients": ["돼지고기", "두부"],
+    "ingredients": [
+      "돼지고기",
+      "두부"
+    ],
     "image": "",
     "video": ""
   },
   {
     "name": "두부조림",
-    "ingredients": ["두부"],
+    "ingredients": [
+      "두부"
+    ],
     "image": "",
     "video": ""
   },
   {
     "name": "마파두부",
-    "ingredients": ["돼지고기", "두부"],
+    "ingredients": [
+      "돼지고기",
+      "두부"
+    ],
     "image": "",
     "video": ""
   },
   {
     "name": "두부강정",
-    "ingredients": ["두부"],
+    "ingredients": [
+      "두부"
+    ],
     "image": "",
     "video": ""
   },
   {
     "name": "두부전",
-    "ingredients": ["두부"],
+    "ingredients": [
+      "두부"
+    ],
     "image": "",
     "video": ""
   },
   {
     "name": "부대찌개",
-    "ingredients": ["김치", "돼지고기", "두부", "햄"],
+    "ingredients": [
+      "김치",
+      "돼지고기",
+      "두부",
+      "햄"
+    ],
     "image": "",
     "video": ""
   },
   {
     "name": "소세지야채볶음",
-    "ingredients": ["햄"],
+    "ingredients": [
+      "햄"
+    ],
     "image": "",
     "video": ""
   },
   {
     "name": "핫도그",
-    "ingredients": ["햄"],
+    "ingredients": [
+      "햄"
+    ],
     "image": "",
     "video": ""
   },
   {
     "name": "스팸마요덮밥",
-    "ingredients": ["햄"],
+    "ingredients": [
+      "햄"
+    ],
     "image": "",
     "video": ""
   },
   {
     "name": "스팸김치볶음밥",
-    "ingredients": ["김치", "햄"],
+    "ingredients": [
+      "김치",
+      "햄"
+    ],
     "image": "",
     "video": ""
   },
   {
     "name": "소불고기",
-    "ingredients": ["소고기"],
+    "ingredients": [
+      "소고기"
+    ],
     "image": "",
     "video": ""
   },
   {
     "name": "소고기무국",
-    "ingredients": ["소고기"],
+    "ingredients": [
+      "소고기"
+    ],
     "image": "",
     "video": ""
   },
   {
     "name": "갈비찜",
-    "ingredients": ["소고기"],
+    "ingredients": [
+      "소고기"
+    ],
     "image": "",
     "video": ""
   },
   {
     "name": "육개장",
-    "ingredients": ["소고기"],
+    "ingredients": [
+      "소고기"
+    ],
     "image": "",
     "video": ""
   },
   {
     "name": "장조림",
-    "ingredients": ["감자", "소고기"],
+    "ingredients": [
+      "감자",
+      "소고기"
+    ],
     "image": "",
     "video": ""
   },
   {
     "name": "미역국",
-    "ingredients": ["소고기"],
+    "ingredients": [
+      "소고기"
+    ],
     "image": "",
     "video": ""
   },
   {
     "name": "소고기덮밥",
-    "ingredients": ["소고기"],
+    "ingredients": [
+      "소고기"
+    ],
     "image": "",
     "video": ""
   }

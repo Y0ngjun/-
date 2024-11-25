@@ -53,8 +53,8 @@ function displayFoodDetails(food) {
     const ingredientsList = document.querySelector('.food-ingredients ul');
     if (ingredientsList) {
         ingredientsList.innerHTML = ''; // 기존 내용을 초기화
-        if (food.ingredients && food.ingredients.length > 0) {
-            food.ingredients.forEach(ingredient => {
+        if (food.recipeingredients && food.recipeingredients.length > 0) {
+            food.recipeingredients.forEach(ingredient => {
                 const li = document.createElement('li');
                 li.textContent = ingredient;
                 ingredientsList.appendChild(li);
