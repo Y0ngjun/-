@@ -167,37 +167,47 @@ header h1 {
 /* 메뉴 목록 (그리드 레이아웃으로 변경) */
 #foods-list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    /* 최소 200px 크기의 칸이 자동으로 채워짐 */
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* 반응형 레이아웃 */
     gap: 20px;
-    /* 아이템들 사이의 간격 */
-    padding: 20px 150px;
+    padding: 20px;
 }
 
-.food {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 200px;
-    /* 정사각형 형태로 만들기 위한 높이 설정 */
-    background-color: #f0f0f0;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    text-align: center;
-    transition: transform 0.3s ease;
-    /* hover 효과를 위해 */
+.food-card {
+    position: relative; /* 자식 요소를 기준으로 배치 */
+    overflow: hidden;
+    border-radius: 10px; /* 카드 모서리 둥글게 */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.food:hover {
-    transform: scale(1.05);
-    /* hover 시 크기가 살짝 커짐 */
+.food-card:hover {
+    transform: scale(1.05); /* 호버 시 크기 증가 */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* 호버 시 그림자 효과 */
 }
 
-.food p {
-    font-size: 18px;
-    color: #333;
-    margin: 0;
+.food-card img {
+    width: 100%; /* 카드 너비에 맞춤 */
+    height: 150px; /* 고정 높이 */
+    object-fit: cover; /* 비율 유지하며 이미지 채우기 */
+    border-radius: 10px; /* 이미지도 모서리 둥글게 */
 }
+
+.food-name-overlay {
+    position: absolute; /* 이미지 위에 겹치도록 배치 */
+    top: 50%; /* 카드의 중간으로 이동 */
+    left: 50%; /* 가로 중앙으로 이동 */
+    transform: translate(-50%, -50%); /* 정확히 중앙으로 조정 */
+    color: #fff; /* 흰색 텍스트 */
+    text-align: center; /* 텍스트 가운데 정렬 */
+    font-size: 20px; /* 글씨 크기 */
+    font-weight: bold; /* 글씨 두께 */
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8); /* 텍스트 그림자 */
+    padding: 10px 20px; /* 텍스트 영역 패딩 */
+    border-radius: 10px; /* 모서리를 둥글게 설정 */
+}
+
+
 
 footer {
     text-align: center;
