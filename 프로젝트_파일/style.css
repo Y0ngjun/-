@@ -273,6 +273,11 @@ footer {
     width: 100%; /* 너비는 그리드 열에 맞춤 */
 }
 
+.food-ingredients ul{
+    overflow-y: auto;
+    width: 100%;
+}
+
 /* 요리 방법 */
 .food-instructions {
     grid-area: instructions;
@@ -286,6 +291,11 @@ footer {
     border-radius: 10px;
     height: 250px; /* 기본 높이 */
     width: 100%; /* 너비는 그리드 열에 맞춤 */
+}
+
+.food-instructions p {
+    overflow-y: auto;
+    width: 100%;
 }
 
 /* 요리 영상 */
