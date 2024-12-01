@@ -24,6 +24,11 @@ nav {
     color: #ff8c1a;
 }
 
+.logo a {
+    color: inherit; /* 부모 요소의 글자색을 상속받음 */
+    text-decoration: none; /* 밑줄 제거 */
+  }
+
 .nav-links {
     list-style: none;
     display: flex;
@@ -167,12 +172,15 @@ header h1 {
 /* 메뉴 목록 (그리드 레이아웃으로 변경) */
 #foods-list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* 반응형 레이아웃 */
+    grid-template-columns: repeat(auto-fill, minmax(auto, 275px)); /* 반응형 레이아웃 */
+    justify-content: center;
     gap: 20px;
     padding: 20px;
 }
 
 .food-card {
+    height: 165px;
+    width: 275px;
     position: relative; /* 자식 요소를 기준으로 배치 */
     overflow: hidden;
     border-radius: 10px; /* 카드 모서리 둥글게 */
@@ -188,7 +196,7 @@ header h1 {
 
 .food-card img {
     width: 100%; /* 카드 너비에 맞춤 */
-    height: 150px; /* 고정 높이 */
+    height: 165px; /* 고정 높이 */
     object-fit: cover; /* 비율 유지하며 이미지 채우기 */
     border-radius: 10px; /* 이미지도 모서리 둥글게 */
 }
@@ -205,9 +213,8 @@ header h1 {
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8); /* 텍스트 그림자 */
     padding: 10px 20px; /* 텍스트 영역 패딩 */
     border-radius: 10px; /* 모서리를 둥글게 설정 */
+    width: 200px;
 }
-
-
 
 footer {
     text-align: center;

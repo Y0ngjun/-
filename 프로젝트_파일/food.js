@@ -4,6 +4,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const urlParams = new URLSearchParams(window.location.search);
     const foodName = urlParams.get('name'); // URL 파라미터에서 `name` 값 가져오기
     console.log(foodName);
+    document.title=foodName+" 레시피";
     // 2. 음식 이름 확인
     if (!foodName) {
         alert('음식 이름이 URL에 제공되지 않았습니다.');
