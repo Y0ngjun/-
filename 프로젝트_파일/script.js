@@ -59,6 +59,7 @@ fetch('ingredients.json')
         data.forEach(ingredient => {
             const btn = document.createElement('button');
             btn.classList.add('ingredient-btn');
+            btn.setAttribute('title', ingredient.name); // 툴팁에 표시할 이름 추가
 
             const img = document.createElement('img');
             img.src = ingredient.image;
@@ -69,7 +70,7 @@ fetch('ingredients.json')
             name.textContent = ingredient.name;
 
             btn.appendChild(img);
-            btn.appendChild(name);
+            
 
             btn.addEventListener('click', () => {
                 btn.classList.toggle('selected');
@@ -84,7 +85,7 @@ fetch('ingredients.json')
 // 선택된 재료로 음식 목록 필터링
 function updateFoodList() {
     const selectedIngredients = Array.from(document.querySelectorAll('.ingredient-btn.selected'))
-        .map(btn => btn.textContent.toLowerCase());
+        .map(btn => btn.getAttribute('title').toLowerCase());
 
     if (selectedIngredients.length === 0) {
         displayFoods(foods);
@@ -122,5 +123,25 @@ document.getElementById('food-search').addEventListener('keypress', (event) => {
             );
             displayFoods(filteredFoods);
         }
+    }
+});
+
+// 모든 메뉴 버튼 클릭 이벤트 추가
+document.getElementById('menu3').addEventListener('click', () => {
+    displayFoods(foods); // 모든 음식 데이터를 화면에 표시
+});
+
+
+// 랜덤으로 음식 3개 선택 함수
+function getRandomFoods(foodData, count) {
+    const shuffled = [...foodData].sort(() => 0.5 - Math.random()); // 데이터를 랜덤하게 섞음
+    return shuffled.slice(0, count); // 상위 `count`개의 아이템 선택
+}
+
+// 추천 버튼 클릭 이벤트 추가
+document.getElementById('menu2').addEventListener('click', () => {
+    if (foods.length > 0) {
+        const randomFoods = getRandomFoods(foods, 3); // 음식 데이터에서 랜덤 3개 가져오기
+        displayFoods(randomFoods); // 가져온 데이터 화면에 표시
     }
 });
