@@ -126,22 +126,90 @@ document.getElementById('food-search').addEventListener('keypress', (event) => {
     }
 });
 
-// 모든 메뉴 버튼 클릭 이벤트 추가
-document.getElementById('menu3').addEventListener('click', () => {
-    displayFoods(foods); // 모든 음식 데이터를 화면에 표시
+// "오늘의 메뉴" 버튼 클릭 시 팝업 띄우기
+document.getElementById('today-menu').addEventListener('click', () => {
+    showPopup();
 });
 
-
-// 랜덤으로 음식 3개 선택 함수
-function getRandomFoods(foodData, count) {
-    const shuffled = [...foodData].sort(() => 0.5 - Math.random()); // 데이터를 랜덤하게 섞음
-    return shuffled.slice(0, count); // 상위 `count`개의 아이템 선택
-}
-
-// 추천 버튼 클릭 이벤트 추가
-document.getElementById('menu2').addEventListener('click', () => {
-    if (foods.length > 0) {
-        const randomFoods = getRandomFoods(foods, 3); // 음식 데이터에서 랜덤 3개 가져오기
-        displayFoods(randomFoods); // 가져온 데이터 화면에 표시
+// 팝업 외부 영역을 클릭했을 때 팝업 닫기
+document.getElementById('menu-popup').addEventListener('click', (event) => {
+    // 팝업 외부 영역(음영)을 클릭한 경우만 팝업을 닫도록 설정
+    if (event.target === event.currentTarget) {
+        hidePopup();
     }
 });
+
+// 팝업 닫기 버튼 클릭 시 팝업 닫기
+document.getElementById('close-popup').addEventListener('click', () => {
+    hidePopup();
+});
+
+// 팝업 보여주는 함수
+function showPopup() {
+    const popup = document.getElementById('menu-popup');
+    const recommendedFoodsContainer = document.getElementById('recommended-foods');
+
+    // 오늘 날짜를 기반으로 랜덤 추천 메뉴 선택
+    const dailyMenu = getDailyMenu();
+    
+    // 추천 메뉴를 카드 형태로 추가
+    recommendedFoodsContainer.innerHTML = ''; // 기존 추천 메뉴 초기화
+    dailyMenu.forEach(food => {
+        const foodCard = document.createElement('div');
+        foodCard.classList.add('food-card');
+        
+        const foodImage = document.createElement('img');
+        foodImage.src = food.image || 'images/default-image.jpg';
+        foodImage.alt = food.name;
+
+        const blackBoxOverlay = document.createElement('div');
+        blackBoxOverlay.className = 'black-box-overlay'; // 음식 이름 오버레이 클래스
+        
+        const foodName = document.createElement('div');
+        foodName.className = 'food-name-overlay'; // 음식 이름 오버레이 클래스
+
+        foodName.textContent = food.name;
+        
+        foodCard.appendChild(foodImage);
+        foodCard.appendChild(blackBoxOverlay);
+        foodCard.appendChild(foodName);
+        
+        recommendedFoodsContainer.appendChild(foodCard);
+    });
+
+    popup.style.display = 'flex'; // 팝업을 보이도록 설정
+}
+
+// 팝업 숨기기
+function hidePopup() {
+    const popup = document.getElementById('menu-popup');
+    popup.style.display = 'none';
+}
+
+// 날짜 기반으로 고유한 메뉴 랜덤화
+function getDailyMenu() {
+    // 날짜를 기반으로 랜덤 시드를 설정
+    const today = new Date();
+    const seed = today.toISOString().slice(0, 10); // YYYY-MM-DD 형식
+
+    // seed 값을 기반으로 랜덤화
+    const random = Math.abs(hashCode(seed)) % foods.length;
+    
+    // 3개의 메뉴 추천 (랜덤하게 선택)
+    const dailyMenu = [];
+    for (let i = 0; i < 3; i++) {
+        dailyMenu.push(foods[(random + i) % foods.length]); // 연속적인 메뉴 추천
+    }
+
+    return dailyMenu;
+}
+
+// 문자열을 숫자로 변환하는 함수 (시드 값을 해시로 변환)
+function hashCode(str) {
+    let hash = 0;
+    for (let i = 0; i < str.length; i++) {
+        const character = str.charCodeAt(i);
+        hash = (hash << 5) - hash + character;
+    }
+    return hash;
+}

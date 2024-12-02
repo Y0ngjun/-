@@ -13,13 +13,19 @@
         <div class="logo"><a href="index.html">Fridge Please</a></div>
         <ul class="nav-links">
             <!-- 추후에 기능 추가 -->
-      <main>
-            <li><a id="menu3"href="#">모든 메뉴</a></li>
-            <li><a id="menu1"href="#">최근본 메뉴</a></li>
-            <li><a id="menu2"href="#">추천</a></li>
-      </main>
+            <li><a id="today-menu">오늘의 메뉴</a></li>
+            <li><a id="recent-menu">최근 본 메뉴</a></li>
         </ul>
     </nav>
+
+    <!-- 팝업을 위한 추가 HTML -->
+    <div id="menu-popup" class="popup">
+        <div class="popup-content">
+            <h2>오늘의 메뉴</h2>
+            <div id="recommended-foods" class="food-cards-container"></div>
+            <div id="close-popup">x</div>
+        </div>
+    </div>
     <header>
         <h1 class="title">냉장고를 부탁해</h1>
         <div class="search-bar">
