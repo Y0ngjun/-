@@ -201,6 +201,21 @@ header h1 {
     border-radius: 10px; /* 이미지도 모서리 둥글게 */
 }
 
+.black-box-overlay{
+    position: absolute;
+    background-color: black;
+    height: 100%;
+    width: 100%;
+    top: 0%; /* 카드의 중간으로 이동 */
+    left: 0%; /* 가로 중앙으로 이동 */
+    opacity: 20%;
+    transition: opacity 0.5s ease;
+}
+
+.food-card:hover .black-box-overlay {
+    opacity: 0; /* 완전히 투명해짐 */
+  }
+
 .food-name-overlay {
     position: absolute; /* 이미지 위에 겹치도록 배치 */
     top: 50%; /* 카드의 중간으로 이동 */

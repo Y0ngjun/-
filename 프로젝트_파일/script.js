@@ -25,6 +25,10 @@ function displayFoods(foodData) {
         foodImage.src = food.image || 'images/default-image.jpg'; // 기본 이미지
         foodImage.alt = food.name; // 대체 텍스트 설정
 
+        // 투명 검은색 박스
+        const blackBoxOverlay = document.createElement('div');
+        blackBoxOverlay.className = 'black-box-overlay'; // 음식 이름 오버레이 클래스
+
         // 음식 이름을 겹쳐 표시할 텍스트 추가
         const foodNameOverlay = document.createElement('div');
         foodNameOverlay.className = 'food-name-overlay'; // 음식 이름 오버레이 클래스
@@ -32,6 +36,7 @@ function displayFoods(foodData) {
 
         // 음식 카드에 이미지와 이름 오버레이 추가
         foodCard.appendChild(foodImage);
+        foodCard.appendChild(blackBoxOverlay);
         foodCard.appendChild(foodNameOverlay);
 
         // 클릭 이벤트 추가
