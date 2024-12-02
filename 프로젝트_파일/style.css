@@ -25,9 +25,11 @@ nav {
 }
 
 .logo a {
-    color: inherit; /* 부모 요소의 글자색을 상속받음 */
-    text-decoration: none; /* 밑줄 제거 */
-  }
+    color: inherit;
+    /* 부모 요소의 글자색을 상속받음 */
+    text-decoration: none;
+    /* 밑줄 제거 */
+}
 
 .nav-links {
     list-style: none;
@@ -191,7 +193,8 @@ header h1 {
 /* 메뉴 목록 (그리드 레이아웃으로 변경) */
 #foods-list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(auto, 275px)); /* 반응형 레이아웃 */
+    grid-template-columns: repeat(auto-fill, minmax(auto, 275px));
+    /* 반응형 레이아웃 */
     justify-content: center;
     gap: 20px;
     padding: 20px;
@@ -200,53 +203,76 @@ header h1 {
 .food-card {
     height: 165px;
     width: 275px;
-    position: relative; /* 자식 요소를 기준으로 배치 */
+    position: relative;
+    /* 자식 요소를 기준으로 배치 */
     overflow: hidden;
-    border-radius: 10px; /* 카드 모서리 둥글게 */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+    border-radius: 10px;
+    /* 카드 모서리 둥글게 */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    /* 그림자 효과 */
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .food-card:hover {
-    transform: scale(1.05); /* 호버 시 크기 증가 */
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* 호버 시 그림자 효과 */
+    transform: scale(1.05);
+    /* 호버 시 크기 증가 */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    /* 호버 시 그림자 효과 */
 }
 
 .food-card img {
-    width: 100%; /* 카드 너비에 맞춤 */
-    height: 165px; /* 고정 높이 */
-    object-fit: cover; /* 비율 유지하며 이미지 채우기 */
-    border-radius: 10px; /* 이미지도 모서리 둥글게 */
+    width: 100%;
+    /* 카드 너비에 맞춤 */
+    height: 165px;
+    /* 고정 높이 */
+    object-fit: cover;
+    /* 비율 유지하며 이미지 채우기 */
+    border-radius: 10px;
+    /* 이미지도 모서리 둥글게 */
 }
 
-.black-box-overlay{
+.black-box-overlay {
     position: absolute;
     background-color: black;
     height: 100%;
     width: 100%;
-    top: 0%; /* 카드의 중간으로 이동 */
-    left: 0%; /* 가로 중앙으로 이동 */
+    top: 0%;
+    /* 카드의 중간으로 이동 */
+    left: 0%;
+    /* 가로 중앙으로 이동 */
     opacity: 20%;
     transition: opacity 0.5s ease;
 }
 
 .food-card:hover .black-box-overlay {
-    opacity: 0; /* 완전히 투명해짐 */
-  }
+    opacity: 0;
+    /* 완전히 투명해짐 */
+}
 
 .food-name-overlay {
-    position: absolute; /* 이미지 위에 겹치도록 배치 */
-    top: 50%; /* 카드의 중간으로 이동 */
-    left: 50%; /* 가로 중앙으로 이동 */
-    transform: translate(-50%, -50%); /* 정확히 중앙으로 조정 */
-    color: #fff; /* 흰색 텍스트 */
-    text-align: center; /* 텍스트 가운데 정렬 */
-    font-size: 20px; /* 글씨 크기 */
-    font-weight: bold; /* 글씨 두께 */
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8); /* 텍스트 그림자 */
-    padding: 10px 20px; /* 텍스트 영역 패딩 */
-    border-radius: 10px; /* 모서리를 둥글게 설정 */
+    position: absolute;
+    /* 이미지 위에 겹치도록 배치 */
+    top: 50%;
+    /* 카드의 중간으로 이동 */
+    left: 50%;
+    /* 가로 중앙으로 이동 */
+    transform: translate(-50%, -50%);
+    /* 정확히 중앙으로 조정 */
+    color: #fff;
+    /* 흰색 텍스트 */
+    text-align: center;
+    /* 텍스트 가운데 정렬 */
+    font-size: 20px;
+    /* 글씨 크기 */
+    font-weight: bold;
+    /* 글씨 두께 */
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+    /* 텍스트 그림자 */
+    padding: 10px 20px;
+    /* 텍스트 영역 패딩 */
+    border-radius: 10px;
+    /* 모서리를 둥글게 설정 */
     width: 200px;
 }
 
@@ -271,7 +297,8 @@ footer {
     margin: 0 auto;
     padding: 20px;
     margin-top: 40px;
-    grid-auto-rows: auto; /* 행 높이를 콘텐츠에 맞게 자동 조정 */
+    grid-auto-rows: auto;
+    /* 행 높이를 콘텐츠에 맞게 자동 조정 */
 }
 
 /* 음식 영역 */
@@ -280,17 +307,24 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: auto; /* 그리드 셀 너비에 맞춤 */
-    height: auto; /* 자동 높이 */
+    width: auto;
+    /* 그리드 셀 너비에 맞춤 */
+    height: auto;
+    /* 자동 높이 */
 }
 
 /* 음식 사진 */
 .food-image img {
-    width: 100%; /* 이미지가 셀 너비를 채우도록 설정 */
-    height: 320px; /* 비율 유지 */
-    max-height: 320px; /* 최대 높이 제한 */
-    object-fit: cover; /* 비율 유지하며 셀 채우기 */
-    border-radius: 10px; /* 모서리를 둥글게 설정 */
+    width: 100%;
+    /* 이미지가 셀 너비를 채우도록 설정 */
+    height: 320px;
+    /* 비율 유지 */
+    max-height: 320px;
+    /* 최대 높이 제한 */
+    object-fit: cover;
+    /* 비율 유지하며 셀 채우기 */
+    border-radius: 10px;
+    /* 모서리를 둥글게 설정 */
     border: 1px solid #ddd;
 }
 
@@ -305,8 +339,10 @@ footer {
     background-color: #f0f0f0;
     border: 1px solid #ddd;
     border-radius: 10px;
-    height: 45px; /* 기본 높이 */
-    width: 100%; /* 너비는 그리드 열에 맞춤 */
+    height: 45px;
+    /* 기본 높이 */
+    width: 100%;
+    /* 너비는 그리드 열에 맞춤 */
 }
 
 /* 음식 재료 */
@@ -320,11 +356,13 @@ footer {
     background-color: #f0f0f0;
     border: 1px solid #ddd;
     border-radius: 10px;
-    height: 250px; /* 기본 높이 */
-    width: 100%; /* 너비는 그리드 열에 맞춤 */
+    height: 250px;
+    /* 기본 높이 */
+    width: 100%;
+    /* 너비는 그리드 열에 맞춤 */
 }
 
-.food-ingredients ul{
+.food-ingredients ul {
     overflow-y: auto;
     width: 100%;
 }
@@ -340,8 +378,10 @@ footer {
     background-color: #f0f0f0;
     border: 1px solid #ddd;
     border-radius: 10px;
-    height: 250px; /* 기본 높이 */
-    width: 100%; /* 너비는 그리드 열에 맞춤 */
+    height: 250px;
+    /* 기본 높이 */
+    width: 100%;
+    /* 너비는 그리드 열에 맞춤 */
 }
 
 .food-instructions p {
@@ -351,22 +391,31 @@ footer {
 
 /* 요리 영상 */
 .food-video {
-    grid-area: video; /* 그리드 위치 지정 */
+    grid-area: video;
+    /* 그리드 위치 지정 */
     position: relative;
-    padding-bottom: auto; /* 16:9 비율 */
-    height: auto; /* 높이는 패딩 비율에 의해 결정됨 */
+    padding-bottom: auto;
+    /* 16:9 비율 */
+    height: auto;
+    /* 높이는 패딩 비율에 의해 결정됨 */
     max-height: 250px;
-    overflow: hidden; /* 섹션 밖으로 나가는 부분 숨김 */
-    background-color: #f0f0f0; /* 배경색 (선택 사항) */
+    overflow: hidden;
+    /* 섹션 밖으로 나가는 부분 숨김 */
+    background-color: #f0f0f0;
+    /* 배경색 (선택 사항) */
     border: 1px solid #ddd;
-    border-radius: 10px; /* 모서리를 둥글게 설정 */
+    border-radius: 10px;
+    /* 모서리를 둥글게 설정 */
 }
 
 .food-video iframe {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%; /* 부모 섹션 너비에 맞춤 */
-    height: 100%; /* 부모 섹션 높이에 맞춤 */
-    border-radius: 10px; /* 영상도 모서리 둥글게 */
+    width: 100%;
+    /* 부모 섹션 너비에 맞춤 */
+    height: 100%;
+    /* 부모 섹션 높이에 맞춤 */
+    border-radius: 10px;
+    /* 영상도 모서리 둥글게 */
 }
