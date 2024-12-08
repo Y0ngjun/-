@@ -81,3 +81,24 @@ function displayFoodDetails(food) {
     }
 
 }
+
+// 현재 페이지의 메뉴를 '최근 본 메뉴'로 저장
+function saveToRecentMenu(foodName) {
+    const recentMenu = JSON.parse(localStorage.getItem('recentMenu')) || [];
+    if (!recentMenu.includes(foodName)) {
+        recentMenu.push(foodName);
+        // 최근 본 메뉴는 최대 10개로 제한
+        if (recentMenu.length > 10) {
+            recentMenu.shift(); // 오래된 메뉴 제거
+        }
+        localStorage.setItem('recentMenu', JSON.stringify(recentMenu));
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const foodName = urlParams.get('name');
+    if (foodName) {
+        saveToRecentMenu(foodName); // 메뉴 저장
+    }
+});
