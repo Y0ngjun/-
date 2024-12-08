@@ -85,7 +85,7 @@ fetch('ingredients.json')
 // 선택된 재료로 음식 목록 필터링
 function updateFoodList() {
     const selectedIngredients = Array.from(document.querySelectorAll('.ingredient-btn.selected'))
-        .map(btn => btn.getAttribute('title').toLowerCase());
+        .map(btn => btn.getAttribute('data-title').toLowerCase());
 
     if (selectedIngredients.length === 0) {
         displayFoods(foods);
