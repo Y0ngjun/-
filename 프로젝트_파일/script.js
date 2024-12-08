@@ -59,7 +59,7 @@ fetch('ingredients.json')
         data.forEach(ingredient => {
             const btn = document.createElement('button');
             btn.classList.add('ingredient-btn');
-            btn.setAttribute('title', ingredient.name); // 툴팁에 표시할 이름 추가
+            btn.setAttribute('data-title', ingredient.name); // 툴팁에 표시할 이름 추가
 
             const img = document.createElement('img');
             img.src = ingredient.image;

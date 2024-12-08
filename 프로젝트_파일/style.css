@@ -1,4 +1,11 @@
 /* 스타일 초기화 */
+@font-face {
+    font-family: '성실체';
+    src: url('폰트/나눔손글씨\ 성실체.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -6,7 +13,7 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: '성실체', sans-serif;
 }
 
 nav {
@@ -16,6 +23,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 60px;
 }
 
 .logo {
@@ -44,7 +52,7 @@ nav {
 .nav-links a {
     text-decoration: none;
     color: #333;
-    font-size: 16px;
+    font-size: 130%;
 }
 
 .nav-links a:hover {
@@ -62,19 +70,20 @@ header {
     color: #333;
     text-align: center;
     border-bottom: 1px solid #ddd;
-    background-image: url('음식_이미지/main.avif');
+    background-image: url('기타_이미지/header8.png');
     background-size: cover; /* 배경 이미지를 헤더 영역 전체에 맞춤 */
     background-position: center; /* 이미지의 중심을 기준으로 배치 */
     background-repeat: no-repeat; /* 이미지 반복 방지 */
-    height: 300px; /* 헤더 높이를 조절하여 배경 이미지 크기 조정 */
+    height: 350px; /* 헤더 높이를 조절하여 배경 이미지 크기 조정 */
 }
 
 header h1 {
     font-size: 36px;
     /* 제목 크기 증가 */
-    color: white;
+    color: #444444;
     margin-bottom: 20px;
     /* 제목과 검색창 사이의 간격 */
+    font-size: 300%;
 }
 
 .search-bar {
@@ -145,6 +154,7 @@ header h1 {
     /* 버튼 높이를 너비와 동일하게 설정하여 정사각형으로 만듦 */
     box-sizing: border-box;
     /* 패딩이 버튼의 크기에 포함되도록 설정 */
+    position: relative;
 }
 
 .ingredient-btn img {
@@ -162,7 +172,7 @@ header h1 {
 
 /* 툴팁 스타일 */
 .ingredient-btn:hover::after {
-    content: attr(title); /* 툴팁 내용으로 title 속성 표시 */
+    content: attr(data-title); /* 툴팁 내용으로 title 속성 표시 */
     position: absolute;
     top: -20px; /* 툴팁 위치 표시 */
     left: 50%;
@@ -171,12 +181,16 @@ header h1 {
     font-weight: bold;
     font-size: 12px; /* 텍스트 크기 */
     padding: 5px 10px;
-    border-radius: 4px;
+    border-radius: 10px;
     white-space: nowrap; /* 텍스트 한 줄 유지 */
     z-index: 10;
     pointer-events: none; /* 툴팁 클릭 방지 */
     opacity: 0; /* 기본적으로 숨김 */
     transition: opacity 0.3s ease; /* 서서히 나타나는 효과 */
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    font-family: '성실체', sans-serif;
+    font-size: 120%;
 }
 .ingredient-btn:hover::after {
     opacity: 1;
@@ -263,7 +277,7 @@ header h1 {
     /* 흰색 텍스트 */
     text-align: center;
     /* 텍스트 가운데 정렬 */
-    font-size: 20px;
+    font-size: 150%;
     /* 글씨 크기 */
     font-weight: bold;
     /* 글씨 두께 */
@@ -360,6 +374,7 @@ footer {
     /* 기본 높이 */
     width: 100%;
     /* 너비는 그리드 열에 맞춤 */
+    font-size: 130%;
 }
 
 .food-ingredients ul {
@@ -382,6 +397,7 @@ footer {
     /* 기본 높이 */
     width: 100%;
     /* 너비는 그리드 열에 맞춤 */
+    font-size: 130%;
 }
 
 .food-instructions p {
