@@ -126,11 +126,6 @@ document.getElementById('food-search').addEventListener('keypress', (event) => {
     }
 });
 
-// "오늘의 메뉴" 버튼 클릭 시 팝업 띄우기
-document.getElementById('today-menu').addEventListener('click', () => {
-    showPopup();
-});
-
 // 팝업 외부 영역을 클릭했을 때 팝업 닫기
 document.getElementById('menu-popup').addEventListener('click', (event) => {
     // 팝업 외부 영역(음영)을 클릭한 경우만 팝업을 닫도록 설정
@@ -144,40 +139,21 @@ document.getElementById('close-popup').addEventListener('click', () => {
     hidePopup();
 });
 
-// 팝업 보여주는 함수
-function showPopup() {
+// 팝업 보여주는 함수 (공통)
+function showPopup(title, contentGenerator) {
     const popup = document.getElementById('menu-popup');
+    const popupTitle = popup.querySelector('h2'); // 팝업 제목
     const recommendedFoodsContainer = document.getElementById('recommended-foods');
 
-    // 오늘 날짜를 기반으로 랜덤 추천 메뉴 선택
-    const dailyMenu = getDailyMenu();
-    
-    // 추천 메뉴를 카드 형태로 추가
-    recommendedFoodsContainer.innerHTML = ''; // 기존 추천 메뉴 초기화
-    dailyMenu.forEach(food => {
-        const foodCard = document.createElement('div');
-        foodCard.classList.add('food-card');
-        
-        const foodImage = document.createElement('img');
-        foodImage.src = food.image || 'images/default-image.jpg';
-        foodImage.alt = food.name;
+    // 제목 업데이트
+    popupTitle.textContent = title;
 
-        const blackBoxOverlay = document.createElement('div');
-        blackBoxOverlay.className = 'black-box-overlay'; // 음식 이름 오버레이 클래스
-        
-        const foodName = document.createElement('div');
-        foodName.className = 'food-name-overlay'; // 음식 이름 오버레이 클래스
+    // 내용 업데이트 (카드 생성)
+    recommendedFoodsContainer.innerHTML = ''; // 기존 메뉴 초기화
+    contentGenerator(recommendedFoodsContainer);
 
-        foodName.textContent = food.name;
-        
-        foodCard.appendChild(foodImage);
-        foodCard.appendChild(blackBoxOverlay);
-        foodCard.appendChild(foodName);
-        
-        recommendedFoodsContainer.appendChild(foodCard);
-    });
-
-    popup.style.display = 'flex'; // 팝업을 보이도록 설정
+    // 팝업 표시
+    popup.style.display = 'flex';
 }
 
 // 팝업 숨기기
@@ -188,19 +164,15 @@ function hidePopup() {
 
 // 날짜 기반으로 고유한 메뉴 랜덤화
 function getDailyMenu() {
-    // 날짜를 기반으로 랜덤 시드를 설정
     const today = new Date();
     const seed = today.toISOString().slice(0, 10); // YYYY-MM-DD 형식
-
-    // seed 값을 기반으로 랜덤화
     const random = Math.abs(hashCode(seed)) % foods.length;
-    
-    // 3개의 메뉴 추천 (랜덤하게 선택)
+
+    // 3개의 메뉴 추천 (랜덤 선택)
     const dailyMenu = [];
     for (let i = 0; i < 3; i++) {
         dailyMenu.push(foods[(random + i) % foods.length]); // 연속적인 메뉴 추천
     }
-
     return dailyMenu;
 }
 
@@ -213,3 +185,93 @@ function hashCode(str) {
     }
     return hash;
 }
+
+// "오늘의 메뉴" 버튼 클릭 이벤트
+document.getElementById('today-menu').addEventListener('click', () => {
+    showPopup("오늘의 메뉴", (container) => {
+        const dailyMenu = getDailyMenu();
+        dailyMenu.forEach(food => addFoodCard(container, food));
+    });
+});
+
+// "최근 본 메뉴" 버튼 클릭 이벤트
+document.getElementById('recent-menu').addEventListener('click', () => {
+    showPopup("최근 본 메뉴", (container) => {
+        const recentMenu = JSON.parse(localStorage.getItem('recentMenu')) || [];
+        recentMenu.forEach(foodName => {
+            const food = foods.find(item => item.name === foodName);
+            if (food) addFoodCard(container, food);
+        });
+    });
+});
+
+// 음식 카드를 생성하여 컨테이너에 추가
+function addFoodCard(container, food) {
+    const foodCard = document.createElement('div');
+    foodCard.classList.add('food-card');
+
+    const foodImage = document.createElement('img');
+    foodImage.src = food.image || 'images/default-image.jpg';
+    foodImage.alt = food.name;
+
+    const blackBoxOverlay = document.createElement('div');
+    blackBoxOverlay.className = 'black-box-overlay';
+
+    const foodNameOverlay = document.createElement('div');
+    foodNameOverlay.className = 'food-name-overlay';
+    foodNameOverlay.textContent = food.name;
+
+    // 클릭 이벤트 추가
+    foodCard.addEventListener('click', () => {
+        window.location.href = `food.html?name=${encodeURIComponent(food.name)}`;
+    });
+
+    foodCard.appendChild(foodImage);
+    foodCard.appendChild(blackBoxOverlay);
+    foodCard.appendChild(foodNameOverlay);
+    container.appendChild(foodCard);
+}
+
+// "food.html" 페이지에 현재 메뉴 저장
+document.addEventListener('DOMContentLoaded', () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const foodName = urlParams.get('name');
+    if (foodName) saveToRecentMenu(foodName);
+});
+
+// 최근 본 메뉴 저장
+function saveToRecentMenu(foodName) {
+    const recentMenu = JSON.parse(localStorage.getItem('recentMenu')) || [];
+    if (!recentMenu.includes(foodName)) {
+        recentMenu.push(foodName);
+        if (recentMenu.length > 10) recentMenu.shift(); // 최대 10개 제한
+        localStorage.setItem('recentMenu', JSON.stringify(recentMenu));
+    }
+}
+
+function saveToRecentMenu(foodName) {
+    const recentMenu = JSON.parse(localStorage.getItem('recentMenu')) || [];
+    if (!recentMenu.includes(foodName)) {
+        recentMenu.push(foodName);
+        if (recentMenu.length > 10) recentMenu.shift(); // 최대 10개 제한
+        localStorage.setItem('recentMenu', JSON.stringify(recentMenu));
+    }
+}
+
+// 페이지 로드 시 현재 메뉴 저장
+document.addEventListener('DOMContentLoaded', () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const foodName = urlParams.get('name');
+    if (foodName) {
+        saveToRecentMenu(foodName); // 메뉴 저장
+    }
+});
+
+// 뒤로가기, 앞으로가기 시 최근 본 메뉴 추가
+window.addEventListener('popstate', () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const foodName = urlParams.get('name');
+    if (foodName) {
+        saveToRecentMenu(foodName); // 메뉴 저장
+    }
+});
