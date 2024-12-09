@@ -11,17 +11,15 @@ window.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
-    // 3. foods.json 파일에서 데이터 로드
+    // foods.json + 로컬스토리지 데이터 합치기
     fetch('foods.json')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('foods.json 파일을 불러올 수 없습니다.');
-            }
-            return response.json(); // JSON 데이터를 파싱
-        })
+        .then(response => response.json())
         .then(data => {
+            const localMenus = JSON.parse(localStorage.getItem('menus')) || [];
+            const allMenus = [...data, ...localMenus];
+
             // 4. JSON 데이터에서 음식 이름과 일치하는 데이터를 찾음
-            const food = data.find(item => item.name === foodName);
+            const food = allMenus.find(item => item.name === foodName);
 
             if (!food) {
                 alert('해당 음식을 찾을 수 없습니다.');
@@ -35,6 +33,7 @@ window.addEventListener('DOMContentLoaded', () => {
             console.error('foods.json 데이터를 불러오는 중 오류:', error);
             alert('음식 데이터를 불러오는 중 문제가 발생했습니다.');
         });
+
 });
 
 // 6. 음식 데이터를 화면에 표시하는 함수

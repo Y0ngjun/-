@@ -6,9 +6,16 @@ fetch('foods.json')
     .then(response => response.json())
     .then(data => {
         foods = data;
-        displayFoods(foods); // 초기 화면에 모든 음식 표시
+
+        // 로컬스토리지에서 사용자 추가 메뉴 가져오기
+        const userMenus = JSON.parse(localStorage.getItem('menus')) || [];
+        const allMenus = [...foods, ...userMenus];
+
+        // 초기 화면에 모든 음식 표시
+        displayFoods(allMenus);
     })
     .catch(error => console.error('Error loading foods:', error));
+
 
 // foods 데이터를 화면에 표시하는 함수
 function displayFoods(foodData) {
@@ -326,6 +333,9 @@ document.getElementById('food-form').addEventListener('submit', function (event)
     let menus = JSON.parse(localStorage.getItem('menus')) || [];
     menus.push(menuData);
     localStorage.setItem('menus', JSON.stringify(menus));
+
+    // 메인 화면 음식 목록 업데이트
+    displayFoods([...foods, ...menus]);
 
     hideAddMenuPopup();
 });
