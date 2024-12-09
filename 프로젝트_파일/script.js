@@ -271,7 +271,12 @@ window.addEventListener('popstate', () => {
 document.getElementById('add-menu').addEventListener('click', () => {
     const popup = document.getElementById('add-menu-popup');
     popup.style.display = 'flex';
+
     document.body.classList.add('no-scroll');
+
+    // 폼 초기화 (이전에 작성한 내용 지우기)
+    const foodForm = document.getElementById('food-form');
+    foodForm.reset();  // 폼 내용 초기화
 });
 
 document.getElementById('add-menu-popup').addEventListener('click', (event) => {
