@@ -26,6 +26,17 @@ nav {
     height: 60px;
 }
 
+nav div {
+    display: flex; /* Flexbox 활성화 */
+    align-items: center; /* Y축 가운데 정렬 */
+    gap: 5px; /* 요소 사이 간격 조정 */
+}
+
+nav img{
+    height: 40px; /* 비율 유지 */
+    width: auto; /* 이미지 크기 조정 */
+}
+
 .logo {
     font-size: 24px;
     font-weight: bold;
