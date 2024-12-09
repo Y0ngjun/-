@@ -15,6 +15,7 @@
             <!-- 추후에 기능 추가 -->
             <li><a id="today-menu">오늘의 메뉴</a></li>
             <li><a id="recent-menu">최근 본 메뉴</a></li>
+            <li><a id="add-menu">메뉴 추가하기</a></li>
         </ul>
     </nav>
 
@@ -26,6 +27,59 @@
             <div id="close-popup">x</div>
         </div>
     </div>
+
+    <!-- 메뉴 추가 팝업-->
+    <div id="add-menu-popup" class="popup">
+        <div class="popup-content">
+            <h2>메뉴 추가하기</h2>
+            <form id="food-form" action="/submit" method="POST" enctype="multipart/form-data">
+                <!-- 메뉴 이름 -->
+                <label for="menu-name">메뉴 이름</label>
+                <input type="text" id="menu-name" name="menu_name" placeholder="메뉴 이름을 입력하세요" required>
+                <br>
+
+                <!-- 재료 -->
+                <label for="ingredients">재료 (쉼표로 구분)</label>
+                <input type="text" id="ingredients" name="ingredients" placeholder="예: 고기, 양파, 소금" required>
+                <br>
+
+                <!-- 레시피 -->
+                <label for="recipe">레시피</label>
+                <textarea id="recipe" name="recipe" rows="5" placeholder="레시피를 입력하세요" required></textarea>
+                <br>
+
+                <!-- 요리 영상 주소 -->
+                <label for="video-url">요리 영상 URL</label>
+                <input type="url" id="video-url" name="video_url" placeholder="예: https://www.youtube.com/..." required>
+                <br>
+
+                <!-- 음식 이미지 업로드 -->
+                <label for="food-image">음식 이미지 경로</label>
+                <input type="text" id="food-image" name="food_image" placeholder="이미지 URL을 입력하세요" required>
+                <br>
+
+                <!-- 태그 -->
+                <fieldset>
+                    <legend>태그를 선택하세요</legend>
+                    <label><input type="checkbox" name="tags" value="감자"> 감자</label>
+                    <label><input type="checkbox" name="tags" value="계란"> 계란</label>
+                    <label><input type="checkbox" name="tags" value="김치"> 김치</label>
+                    <label><input type="checkbox" name="tags" value="닭고기"> 닭고기</label>
+                    <label><input type="checkbox" name="tags" value="해산물"> 해산물</label>
+                    <label><input type="checkbox" name="tags" value="돼지고기"> 돼지고기</label>
+                    <label><input type="checkbox" name="tags" value="두부"> 두부</label>
+                    <label><input type="checkbox" name="tags" value="햄"> 햄</label>
+                    <label><input type="checkbox" name="tags" value="소고기"> 소고기</label>
+                </fieldset>
+                <br>
+
+                <!-- 제출 버튼 -->
+                <button type="submit" id="add-menu-button">제출</button>
+            </form>
+            <div id="add-close-popup">x</div>
+        </div>
+    </div>
+
     <header>
         <h1 class="title">냉장고를 부탁해</h1>
         <div class="search-bar">

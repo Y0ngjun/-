@@ -266,3 +266,61 @@ window.addEventListener('popstate', () => {
         saveToRecentMenu(foodName); // 메뉴 저장
     }
 });
+
+// "메뉴추가" 버튼 클릭 이벤트
+document.getElementById('add-menu').addEventListener('click', () => {
+    const popup = document.getElementById('add-menu-popup');
+    popup.style.display = 'flex';
+    document.body.classList.add('no-scroll');
+});
+
+document.getElementById('add-menu-popup').addEventListener('click', (event) => {
+    // 팝업 외부 영역(음영)을 클릭한 경우만 팝업을 닫도록 설정
+    if (event.target === event.currentTarget) {
+        hideAddMenuPopup();
+    }
+});
+
+// 팝업 닫기 버튼 클릭 시 팝업 닫기
+document.getElementById('add-close-popup').addEventListener('click', () => {
+    hideAddMenuPopup();
+});
+
+// 팝업 숨기기
+function hideAddMenuPopup() {
+    const popup = document.getElementById('add-menu-popup');
+    popup.style.display = 'none';
+    document.body.classList.remove('no-scroll'); // 스크롤 활성화
+}
+
+document.getElementById('food-form').addEventListener('submit', function (event) {
+    event.preventDefault(); // 폼 제출 막기
+
+    // 폼 데이터 가져오기
+    const menuName = document.getElementById('menu-name').value;
+    const ingredients = document.getElementById('ingredients').value;
+    const instructions = document.getElementById('recipe').value; // 레시피 내용
+    const foodImage = document.getElementById('food-image').value;
+    const videoUrl = document.getElementById('video-url').value;
+    const tags = Array.from(document.querySelectorAll('input[name="tags"]:checked')).map(tag => tag.value);
+
+    // 재료를 쉼표로 나누어 배열로 만들기
+    const ingredientList = ingredients.split(',').map(ingredient => ingredient.trim());
+
+    // 음식 데이터 객체 만들기
+    const menuData = {
+        name: menuName,
+        ingredients: tags,
+        recipeingredients: ingredientList, // 레시피 재료 리스트
+        instructions: instructions,
+        image: foodImage, // 음식 이미지 파일 이름 저장
+        video: videoUrl
+    };
+
+    // 로컬스토리지에 저장
+    let menus = JSON.parse(localStorage.getItem('menus')) || [];
+    menus.push(menuData);
+    localStorage.setItem('menus', JSON.stringify(menus));
+
+    hideAddMenuPopup();
+});

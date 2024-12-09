@@ -513,3 +513,110 @@ footer {
     object-fit: cover;
     border-radius: 10px;
 }
+
+/* 폼 스타일 */
+#food-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* 요소 간 간격 */
+    width: 100%;
+    max-width: 500px; /* 폼의 최대 너비 설정 */
+    margin: 0 auto; /* 폼을 가운데 정렬 */
+}
+
+/* 레이블 및 인풋 스타일 */
+#food-form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+#food-form input,
+#food-form textarea,
+#food-form fieldset {
+    width: 100%; /* 인풋과 텍스트박스를 폼 너비에 맞춤 */
+    box-sizing: border-box; /* 패딩과 테두리를 포함하여 크기 계산 */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+fieldset {
+    display: flex;
+    flex-wrap: wrap; /* 줄 바꿈 허용 */
+    gap: 10px; /* 체크박스 간격 */
+    padding: 10px; /* 필드셋 내부 여백 */
+    border: 1px solid #ccc; /* 필드셋 테두리 */
+    border-radius: 5px; /* 필드셋 둥근 테두리 */
+}
+
+fieldset label {
+    display: flex;
+    align-items: center; /* 체크박스와 텍스트 수직 정렬 */
+    gap: 5px; /* 체크박스와 텍스트 사이 간격 */
+    margin: 5px 0; /* 라벨 사이의 간격 */
+    padding: 2px 5px; /* 라벨 내부 여백 */
+    border-radius: 4px; /* 라벨 모양 변경 */
+}
+
+fieldset label:hover {
+    background-color: #f9f9f9; /* 라벨 호버 시 배경색 */
+}
+
+/* 제출 버튼 스타일 */
+#food-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#food-form button:hover {
+    background-color: #0056b3;
+}
+
+/* 팝업 닫기 버튼 스타일 */
+#add-close-popup {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    color: #333;
+    font-weight: bold;
+}
+
+/* 팝업 콘텐츠 스타일 */
+.popup-content {
+    position: relative;
+    width: 80%;
+    max-width: 600px;
+    max-height: 80vh; /* 높이를 뷰포트의 80%로 제한 */
+    overflow-y: auto; /* 세로 스크롤 활성화 */
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* 스크롤바 스타일 (선택 사항) */
+.popup-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.popup-content::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 4px;
+}
+
+.popup-content::-webkit-scrollbar-thumb:hover {
+    background-color: #888;
+}
+
+/* 스크롤을 멈추는 스타일 */
+.no-scroll {
+    overflow: hidden; /* 스크롤 비활성화 */
+}
