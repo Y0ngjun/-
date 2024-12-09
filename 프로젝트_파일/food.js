@@ -87,8 +87,8 @@ function saveToRecentMenu(foodName) {
     const recentMenu = JSON.parse(localStorage.getItem('recentMenu')) || [];
     if (!recentMenu.includes(foodName)) {
         recentMenu.push(foodName);
-        // 최근 본 메뉴는 최대 10개로 제한
-        if (recentMenu.length > 10) {
+        // 최근 본 메뉴는 최대 4개로 제한
+        if (recentMenu.length > 4) {
             recentMenu.shift(); // 오래된 메뉴 제거
         }
         localStorage.setItem('recentMenu', JSON.stringify(recentMenu));

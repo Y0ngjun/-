@@ -244,16 +244,7 @@ function saveToRecentMenu(foodName) {
     const recentMenu = JSON.parse(localStorage.getItem('recentMenu')) || [];
     if (!recentMenu.includes(foodName)) {
         recentMenu.push(foodName);
-        if (recentMenu.length > 10) recentMenu.shift(); // 최대 10개 제한
-        localStorage.setItem('recentMenu', JSON.stringify(recentMenu));
-    }
-}
-
-function saveToRecentMenu(foodName) {
-    const recentMenu = JSON.parse(localStorage.getItem('recentMenu')) || [];
-    if (!recentMenu.includes(foodName)) {
-        recentMenu.push(foodName);
-        if (recentMenu.length > 10) recentMenu.shift(); // 최대 10개 제한
+        if (recentMenu.length > 4) recentMenu.shift(); // 최대 4개 제한
         localStorage.setItem('recentMenu', JSON.stringify(recentMenu));
     }
 }
