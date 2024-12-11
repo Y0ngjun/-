@@ -311,10 +311,13 @@ document.getElementById('food-form').addEventListener('submit', function (event)
     // 폼 데이터 가져오기
     const menuName = document.getElementById('menu-name').value;
     const ingredients = document.getElementById('ingredients').value;
-    const instructions = document.getElementById('recipe').value; // 레시피 내용
+    instructions = document.getElementById('recipe').value; // 레시피 내용
     const foodImage = document.getElementById('food-image').value;
     const videoUrl = document.getElementById('video-url').value;
     const tags = Array.from(document.querySelectorAll('input[name="tags"]:checked')).map(tag => tag.value);
+
+    // 줄바꿈 문자를 <br>로 교체
+    instructions = instructions.replace(/\n/g, '<br>');
 
     // 재료를 쉼표로 나누어 배열로 만들기
     const ingredientList = ingredients.split(',').map(ingredient => ingredient.trim());
