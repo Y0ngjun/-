@@ -16,7 +16,6 @@ fetch('foods.json')
     })
     .catch(error => console.error('Error loading foods:', error));
 
-
 // foods 데이터를 화면에 표시하는 함수
 function displayFoods(foodData) {
     const foodsList = document.getElementById('foods-list');
@@ -55,8 +54,6 @@ function displayFoods(foodData) {
         foodsList.appendChild(foodCard);
     });
 }
-
-
 
 // ingredients.json 데이터 불러오기
 fetch('ingredients.json')
@@ -133,18 +130,13 @@ document.getElementById('food-search').addEventListener('keypress', (event) => {
     }
 });
 
-// 팝업 외부 영역을 클릭했을 때 팝업 닫기
-document.getElementById('menu-popup').addEventListener('click', (event) => {
-    // 팝업 외부 영역(음영)을 클릭한 경우만 팝업을 닫도록 설정
-    if (event.target === event.currentTarget) {
-        hidePopup();
-    }
-});
 
-// 팝업 닫기 버튼 클릭 시 팝업 닫기
-document.getElementById('close-popup').addEventListener('click', () => {
-    hidePopup();
-});
+
+
+// -----------------------------
+// 팝업 제어 및 메뉴 추가 코드
+// -----------------------------
+
 
 // 팝업 보여주는 함수 (공통)
 function showPopup(title, contentGenerator) {
@@ -163,11 +155,51 @@ function showPopup(title, contentGenerator) {
     popup.style.display = 'flex';
 }
 
-// 팝업 숨기기
-function hidePopup() {
-    const popup = document.getElementById('menu-popup');
-    popup.style.display = 'none';
+// 팝업 외부 영역을 클릭했을 때 팝업 닫기
+document.getElementById('menu-popup').addEventListener('click', (event) => {
+    // 팝업 외부 영역(음영)을 클릭한 경우만 팝업을 닫도록 설정
+    if (event.target === event.currentTarget) {
+        document.getElementById('menu-popup').style.display='none';
+    }
+});
+
+// 팝업 닫기 버튼 클릭 시 팝업 닫기
+document.getElementById('close-popup').addEventListener('click', () => {
+    document.getElementById('menu-popup').style.display='none';
+});
+
+// 음식 카드를 생성하여 컨테이너에 추가
+function addFoodCard(container, food) {
+    const foodCard = document.createElement('div');
+    foodCard.classList.add('food-card');
+
+    const foodImage = document.createElement('img');
+    foodImage.src = food.image || 'images/default-image.jpg';
+    foodImage.alt = food.name;
+
+    const blackBoxOverlay = document.createElement('div');
+    blackBoxOverlay.className = 'black-box-overlay';
+
+    const foodNameOverlay = document.createElement('div');
+    foodNameOverlay.className = 'food-name-overlay';
+    foodNameOverlay.textContent = food.name;
+
+    // 클릭 이벤트 추가
+    foodCard.addEventListener('click', () => {
+        window.location.href = `food.html?name=${encodeURIComponent(food.name)}`;
+    });
+
+    foodCard.appendChild(foodImage);
+    foodCard.appendChild(blackBoxOverlay);
+    foodCard.appendChild(foodNameOverlay);
+    container.appendChild(foodCard);
 }
+
+
+// -----------------------------
+// 오늘의 메뉴 관련 코드
+// -----------------------------
+
 
 // 날짜 기반으로 고유한 메뉴 랜덤화
 function getDailyMenu() {
@@ -201,6 +233,12 @@ document.getElementById('today-menu').addEventListener('click', () => {
     });
 });
 
+
+// -----------------------------
+// 최근 본 메뉴 관련 코드
+// -----------------------------
+
+
 // "최근 본 메뉴" 버튼 클릭 이벤트
 document.getElementById('recent-menu').addEventListener('click', () => {
     showPopup("최근 본 메뉴", (container) => {
@@ -212,67 +250,33 @@ document.getElementById('recent-menu').addEventListener('click', () => {
     });
 });
 
-// 음식 카드를 생성하여 컨테이너에 추가
-function addFoodCard(container, food) {
-    const foodCard = document.createElement('div');
-    foodCard.classList.add('food-card');
-
-    const foodImage = document.createElement('img');
-    foodImage.src = food.image || 'images/default-image.jpg';
-    foodImage.alt = food.name;
-
-    const blackBoxOverlay = document.createElement('div');
-    blackBoxOverlay.className = 'black-box-overlay';
-
-    const foodNameOverlay = document.createElement('div');
-    foodNameOverlay.className = 'food-name-overlay';
-    foodNameOverlay.textContent = food.name;
-
-    // 클릭 이벤트 추가
-    foodCard.addEventListener('click', () => {
-        window.location.href = `food.html?name=${encodeURIComponent(food.name)}`;
-    });
-
-    foodCard.appendChild(foodImage);
-    foodCard.appendChild(blackBoxOverlay);
-    foodCard.appendChild(foodNameOverlay);
-    container.appendChild(foodCard);
-}
-
-// "food.html" 페이지에 현재 메뉴 저장
+// 페이지 로드 시 URL에서 음식 이름 처리
 document.addEventListener('DOMContentLoaded', () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const foodName = urlParams.get('name');
+    if (foodName) {
+        saveToRecentMenu(foodName); // 메뉴 저장
+    }
+});
+
+// URL에서 음식 이름(name 파라미터) 추출 및 최근 본 메뉴에 저장
+function handleFoodNameFromURL() {
     const urlParams = new URLSearchParams(window.location.search);
     const foodName = urlParams.get('name');
     if (foodName) saveToRecentMenu(foodName);
-});
-
-// 최근 본 메뉴 저장
-function saveToRecentMenu(foodName) {
-    const recentMenu = JSON.parse(localStorage.getItem('recentMenu')) || [];
-    if (!recentMenu.includes(foodName)) {
-        recentMenu.push(foodName);
-        if (recentMenu.length > 4) recentMenu.shift(); // 최대 4개 제한
-        localStorage.setItem('recentMenu', JSON.stringify(recentMenu));
-    }
 }
 
-// 페이지 로드 시 현재 메뉴 저장
-document.addEventListener('DOMContentLoaded', () => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const foodName = urlParams.get('name');
-    if (foodName) {
-        saveToRecentMenu(foodName); // 메뉴 저장
-    }
-});
+// 페이지가 처음 로드될 때 URL에서 음식 이름 처리
+document.addEventListener('DOMContentLoaded', handleFoodNameFromURL);
 
-// 뒤로가기, 앞으로가기 시 최근 본 메뉴 추가
-window.addEventListener('popstate', () => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const foodName = urlParams.get('name');
-    if (foodName) {
-        saveToRecentMenu(foodName); // 메뉴 저장
-    }
-});
+// 브라우저 히스토리에서 상태(popstate) 변경 시 URL에서 음식 이름 처리
+window.addEventListener('popstate', handleFoodNameFromURL);
+
+
+// -----------------------------
+//메뉴 추가하기 관련 코드
+// -----------------------------
+
 
 // "메뉴추가" 버튼 클릭 이벤트
 document.getElementById('add-menu').addEventListener('click', () => {
@@ -286,25 +290,22 @@ document.getElementById('add-menu').addEventListener('click', () => {
     foodForm.reset();  // 폼 내용 초기화
 });
 
+// 팝업 외부 영역을 클릭했을 때 팝업 닫기
 document.getElementById('add-menu-popup').addEventListener('click', (event) => {
     // 팝업 외부 영역(음영)을 클릭한 경우만 팝업을 닫도록 설정
     if (event.target === event.currentTarget) {
-        hideAddMenuPopup();
+        document.getElementById('add-menu-popup').style.display= 'none';
+        document.body.classList.remove('no-scroll');
     }
 });
 
 // 팝업 닫기 버튼 클릭 시 팝업 닫기
 document.getElementById('add-close-popup').addEventListener('click', () => {
-    hideAddMenuPopup();
+    document.getElementById('add-menu-popup').style.display= 'none';
+    document.body.classList.remove('no-scroll');
 });
 
-// 팝업 숨기기
-function hideAddMenuPopup() {
-    const popup = document.getElementById('add-menu-popup');
-    popup.style.display = 'none';
-    document.body.classList.remove('no-scroll'); // 스크롤 활성화
-}
-
+// 폼 제출 이벤트 처리
 document.getElementById('food-form').addEventListener('submit', function (event) {
     event.preventDefault(); // 폼 제출 막기
 

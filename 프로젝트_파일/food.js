@@ -1,11 +1,9 @@
 // 상세 페이지 관련 코드
 window.addEventListener('DOMContentLoaded', () => {
-    // 1. URL에서 음식 이름(name 파라미터)을 가져옵니다.
     const urlParams = new URLSearchParams(window.location.search);
-    const foodName = urlParams.get('name'); // URL 파라미터에서 `name` 값 가져오기
+    const foodName = urlParams.get('name'); 
     console.log(foodName);
     document.title=foodName+" 레시피";
-    // 2. 음식 이름 확인
     if (!foodName) {
         alert('음식 이름이 URL에 제공되지 않았습니다.');
         return;
@@ -17,8 +15,6 @@ window.addEventListener('DOMContentLoaded', () => {
         .then(data => {
             const localMenus = JSON.parse(localStorage.getItem('menus')) || [];
             const allMenus = [...data, ...localMenus];
-
-            // 4. JSON 데이터에서 음식 이름과 일치하는 데이터를 찾음
             const food = allMenus.find(item => item.name === foodName);
 
             if (!food) {
@@ -26,7 +22,6 @@ window.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            // 5. 음식 데이터를 화면에 표시
             displayFoodDetails(food);
         })
         .catch(error => {
@@ -36,7 +31,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 });
 
-// 6. 음식 데이터를 화면에 표시하는 함수
+// 음식 데이터를 화면에 표시하는 함수
 function displayFoodDetails(food) {
     // 음식 이름
     const foodNameElement = document.querySelector('.food-name h2');
@@ -45,14 +40,14 @@ function displayFoodDetails(food) {
     // 음식 사진
     const foodImageElement = document.querySelector('.food-image img');
     if (foodImageElement) {
-        foodImageElement.src = food.image || 'default-image.jpg'; // 기본 이미지 설정
+        foodImageElement.src = food.image || 'default-image.jpg'; 
         foodImageElement.alt = food.name || '음식 이미지';
     }
 
     // 음식 재료
     const ingredientsList = document.querySelector('.food-ingredients ul');
     if (ingredientsList) {
-        ingredientsList.innerHTML = ''; // 기존 내용을 초기화
+        ingredientsList.innerHTML = ''; 
         if (food.recipeingredients && food.recipeingredients.length > 0) {
             food.recipeingredients.forEach(ingredient => {
                 const li = document.createElement('li');
@@ -74,9 +69,8 @@ function displayFoodDetails(food) {
     // 요리 영상
     const foodVideoElement = document.querySelector('.food-video iframe');
     if (foodVideoElement) {
-        // food 객체의 video 속성을 사용하여 YouTube embed URL 설정
         const videoUrl = food.video || 'https://www.youtube.com/embed/defaultVideoId'; // 기본 비디오 설정
-        foodVideoElement.src = videoUrl; // iframe의 src를 업데이트
+        foodVideoElement.src = videoUrl; 
     }
 
 }
@@ -98,6 +92,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const urlParams = new URLSearchParams(window.location.search);
     const foodName = urlParams.get('name');
     if (foodName) {
-        saveToRecentMenu(foodName); // 메뉴 저장
+        saveToRecentMenu(foodName); 
     }
 });
