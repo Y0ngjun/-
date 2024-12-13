@@ -341,5 +341,6 @@ document.getElementById('food-form').addEventListener('submit', function (event)
     // 메인 화면 음식 목록 업데이트
     displayFoods([...foods, ...menus]);
 
-    hideAddMenuPopup();
+    document.getElementById('add-menu-popup').style.display= 'none';
+    document.body.classList.remove('no-scroll');
 });
