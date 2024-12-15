@@ -10,9 +10,10 @@ fetch('foods.json')
         // 로컬스토리지에서 사용자 추가 메뉴 가져오기
         const userMenus = JSON.parse(localStorage.getItem('menus')) || [];
         const allMenus = [...foods, ...userMenus];
+        foods = allMenus;
 
         // 초기 화면에 모든 음식 표시
-        displayFoods(allMenus);
+        displayFoods(foods);
     })
     .catch(error => console.error('Error loading foods:', error));
 
@@ -344,3 +345,4 @@ document.getElementById('food-form').addEventListener('submit', function (event)
     document.getElementById('add-menu-popup').style.display= 'none';
     document.body.classList.remove('no-scroll');
 });
+
