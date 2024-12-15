@@ -15,22 +15,10 @@
     box-sizing: border-box;
 }
 
-html, body {
-    height: 100%;
-    margin: 0;
-    display: flex;
-    flex-direction: column; 
-}
-
 /* 전체 문서의 기본 폰트 */
 body {
     font-family: '성실체', sans-serif;
-    display: flex;
-    flex-direction: column;
 }
-
-/* main 영역은 가변적으로 확장 */
-
 
 /* 네비게이션 바 스타일 */
 nav {
@@ -290,7 +278,6 @@ footer {
     background-color: #333;
     color: white;
     font-size: 14px;
-    margin-top: auto;
 }
 
 /* 상세 페이지 레이아웃 */
